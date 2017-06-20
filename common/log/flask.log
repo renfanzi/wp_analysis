@@ -1,0 +1,67 @@
+2017-05-16 17:57:33,238 - ERROR - views.py - frequency_get - 214 - unsupported operand type(s) for /: 'str' and 'float'
+2017-05-16 17:58:58,645 - ERROR - views.py - frequency_get - 212 - unsupported operand type(s) for /: 'str' and 'float'
+2017-05-18 12:54:09,136 - ERROR - views.py - chisquare_get - 68 - float division by zero
+2017-05-18 12:58:59,185 - ERROR - views.py - chisquare_get - 68 - float division by zero
+2017-05-18 17:03:08,530 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:18,547 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:19,869 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:26,015 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:34,195 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:38,298 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:40,312 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:24:51,791 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:25:04,610 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:32:53,585 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:41:51,339 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:42:27,424 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:42:37,737 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:42:40,083 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:42:44,944 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:43:56,359 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:43:57,332 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:43:59,463 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:44:01,937 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:07,248 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:08,190 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:10,417 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:13,101 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:15,271 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:16,138 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:18,269 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:46:20,832 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:48:36,926 - ERROR - views.py - chisquare_get - 74 - 0
+2017-05-18 17:48:41,650 - ERROR - views.py - chisquare_get - 74 - 0
+2017-05-18 17:48:44,456 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:48:46,280 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:48:48,067 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:48:49,803 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:48:52,472 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 17:51:36,645 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:51:38,588 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:51:45,165 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:51:53,749 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:51:59,141 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:52:01,720 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:52:16,009 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:52:29,516 - ERROR - views.py - chisquare_get - 74 - 105
+2017-05-18 17:56:03,384 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:56:04,290 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:56:06,501 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 17:56:09,251 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-18 18:00:05,623 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:00:06,450 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:00:08,671 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:00:15,495 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:01,513 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:02,552 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:05,052 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:07,614 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:09,379 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:10,294 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:12,849 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-18 18:04:15,590 - ERROR - views.py - varianc_get - 98 - 0
+2017-05-19 23:28:35,001 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-19 23:29:04,804 - ERROR - views.py - varianc_get - 98 - 1
+2017-05-21 23:12:04,277 - ERROR - views.py - chisquare_get - 82 - (pymysql.err.InternalError) (1054, u"Unknown column 'abc' in 'field list'") [SQL: 'select P2Q02, abc from dc_bys2016_dataandusers where 1=1;']
+2017-06-18 01:29:54,303 - ERROR - views.py - SeriesTable - 595 - global name 'sss' is not defined
+2017-06-18 01:40:48,564 - ERROR - views.py - SeriesTable - 598 - global name 'sss' is not defined
