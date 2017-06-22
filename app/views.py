@@ -510,63 +510,64 @@ def multiple_response_get(UserID, ProjID, QuesID, ColumnID, ColumnName, TableNam
 @app.route('/v1/compare_mean/<string:UserID>:<string:ProjID>:<string:QuesID>:<string:ColumnID>:<string:ColumnName>:<ColumnEXID>:<string:ColumnEXName>:<string:TableName>:<string:Where>', methods=['GET'])
 def CompareTheMean(UserID, ProjID, QuesID, ColumnID, ColumnName, ColumnEXID, ColumnEXName, TableName, Where):
 
-    try:
-        mean_data = CompareMean(ProjID, ColumnID, ColumnEXID, TableName, Where)
-        data_li = list()
+    # try:
+    status = 2000
+    mean_data = CompareMean(ProjID, ColumnID, ColumnEXID, TableName, Where)
+    data_li = list()
 
-        variance_data = variance(ColumnID, ColumnEXID, TableName, Where)
-        opt_id, mid_data = midValue(ProjID, ColumnID,  ColumnEXID, TableName, Where)
+    variance_data = variance(ColumnID, ColumnEXID, TableName, Where)
+    opt_id, mid_data = midValue(ProjID, ColumnID,  ColumnEXID, TableName, Where)
 
-        for m in mean_data:
-            mid_li = []
-            for i in range(len(opt_id)):
-                if int(m["optionID"]) == int(opt_id.iloc[i]):
-                    mid_li.append(mid_data.iloc[i])
-            data_dict = dict()
-            data_dict["columnID"] = ColumnID
-            data_dict["questionshortNM"] = ColumnName
-            data_dict["columnEXID"] = ColumnEXID
-            data_dict["questionshortEXNM"] = ColumnEXName
-            data_dict["optionEXID"] = m["optionID"]
-            data_dict["optionEXNM"] = m["optionNM"]
-            data_dict["countN"] = str(m["SUMDATA"])
-            data_dict["average"] = m["avgdata"]
-            data_dict["stdev"] = m["STDEVALL"]
-            data_dict["maxValue"] = str(m["colMAX"])
-            data_dict["minValue"] = str(m["colMIN"])
-            data_dict["sum"] = m["SUMALL"]
-            # data_dict["midValue"] = m["STDEVALL"]
-            data_dict["F_Value"] = variance_data["F"]
-            data_dict["P_Value"] = variance_data["P"]
-            if variance_data["P"] < 0.05:
-                if variance_data["P"] >= 0.01:
-                    data_dict["F_P_Value"] = "%.2f*" % variance_data["F"]
+    for m in mean_data:
+        mid_li = []
+        for i in range(len(opt_id)):
+            if int(m["optionID"]) == int(opt_id.iloc[i]):
+                mid_li.append(mid_data.iloc[i])
+        data_dict = dict()
+        data_dict["columnID"] = ColumnID
+        data_dict["questionshortNM"] = ColumnName
+        data_dict["columnEXID"] = ColumnEXID
+        data_dict["questionshortEXNM"] = ColumnEXName
+        data_dict["optionEXID"] = m["optionID"]
+        data_dict["optionEXNM"] = m["optionNM"]
+        data_dict["countN"] = str(m["SUMDATA"])
+        data_dict["average"] = m["avgdata"]
+        data_dict["stdev"] = m["STDEVALL"]
+        data_dict["maxValue"] = str(m["colMAX"])
+        data_dict["minValue"] = str(m["colMIN"])
+        data_dict["sum"] = m["SUMALL"]
+        # data_dict["midValue"] = m["STDEVALL"]
+        data_dict["F_Value"] = variance_data["F"]
+        data_dict["P_Value"] = variance_data["P"]
+        if variance_data["P"] < 0.05:
+            if variance_data["P"] >= 0.01:
+                data_dict["F_P_Value"] = "%.2f*" % variance_data["F"]
+            else:
+                if variance_data["P"] >= 0.001:
+                    data_dict["F_P_Value"] = "%.2f**" % variance_data["F"]
                 else:
-                    if variance_data["P"] >= 0.001:
-                        data_dict["F_P_Value"] = "%.2f**" % variance_data["F"]
-                    else:
-                        data_dict["F_P_Value"] = "%.2f***" % variance_data["F"]
+                    data_dict["F_P_Value"] = "%.2f***" % variance_data["F"]
 
-            else:
-                data_dict["F_P_Value"] = "%.2f" % variance_data["F"]
+        else:
+            data_dict["F_P_Value"] = "%.2f" % variance_data["F"]
 
-            if len(mid_li) > 1:
+        if len(mid_li) > 1:
 
-                mid_quart_data = my_4_quartiles(mid_li)
-                data_dict["midValue"] = mid_quart_data[1]
-                data_dict["25%"] = mid_quart_data[0]
-                data_dict["75%"] = mid_quart_data[2]
-            else:
-                data_dict["midValue"] = 0
-                data_dict["25%"] = 0
-                data_dict["75%"] = 0
+            mid_quart_data = my_4_quartiles(mid_li)
+            data_dict["midValue"] = mid_quart_data[1]
+            data_dict["25%"] = mid_quart_data[0]
+            data_dict["75%"] = mid_quart_data[2]
+        else:
+            data_dict["midValue"] = 0
+            data_dict["25%"] = 0
+            data_dict["75%"] = 0
 
 
-            data_li.append(data_dict)
-        status = 2000
-    except Exception as e:
-        app.logger.error(e)
-        status = 5000
+        data_li.append(data_dict)
+
+    # except Exception as e:
+    #     app.logger.error(e)
+    #     status = 5000
 
 
     if status == 2000:
