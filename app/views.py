@@ -264,133 +264,133 @@ def varianc_get(v1, v2, table, where):
 # 频次分析--单选题
 @app.route('/v1/frequency/<string:UserID>:<string:ProjID>:<string:QuesID>:<string:ColumnID>:<string:ColumnName>:<string:TableName>:<string:Where>',methods=['GET'])
 def frequency_get(UserID, ProjID, QuesID, ColumnID, ColumnName, TableName, Where):
-    if request.method == 'GET':
-        import time
-        t1 = time.time()
 
-        try:
-            status = 2000
+    import time
+    t1 = time.time()
 
-            CountSql = "SELECT {}, Count(1) AS DataCount FROM {}  WHERE {} GROUP BY {} Order by {} Asc".format(ColumnID,
-                                                                                                               TableName,
-                                                                                                               Where,
-                                                                                                               ColumnID,
-                                                                                                               ColumnID)
+    try:
+        status = 2000
 
-            ret = MyPymysql('mysql')
-            DataCount = ret.selectall_sql(CountSql)
-            if len(DataCount) == False:
-                status = 5002
+        CountSql = "SELECT {}, Count(1) AS DataCount FROM {}  WHERE {} GROUP BY {} Order by {} Asc".format(ColumnID,
+                                                                                                           TableName,
+                                                                                                           Where,
+                                                                                                           ColumnID,
+                                                                                                           ColumnID)
 
-            # 注: Effectflag {1:有效, 0:无效}
-            OptionSql = "SELECT optionNM, effectFlag, optionID FROM {} WHERE userID={} AND projectID={} AND columnID='{}';".format(
-                "b_option", UserID, ProjID, ColumnID)  # 暂时缺quesID
-
-            OptionRes = ret.selectall_sql(OptionSql)
-
-            overall_total = 0  # 整体合计
-            effective_total = 0  # 有效合计 1
-            missing_total = 0  # 缺失合计
-            li = []
-            for i in range(len(DataCount)):
-                for j in range(len(OptionRes)):
-
-                    if int(OptionRes[j]["optionID"]) == int(DataCount[i][ColumnID]) and int(
-                            OptionRes[j]['effectFlag']) == 1:
-                        effective_total += DataCount[i]["DataCount"]
-
-                    else:
-                        missing_total += DataCount[i]["DataCount"]
-
-                overall_total += DataCount[i]["DataCount"]
-
-            for k in range(len(DataCount)):
-                optionNM = u"缺失"
-                for v in range(len(OptionRes)):
-
-                    if int(OptionRes[v]["optionID"]) == int(DataCount[k][ColumnID]):
-                        optionNM = OptionRes[v]["optionNM"]
-                        break
-
-                countN = DataCount[k]["DataCount"]
-
-                if effective_total:
-                    PER = float(countN) / float(effective_total)
-                    countPER = "%.10f" % PER
-
-                else:
-                    countPER = 0
-                ave_std_n_sql = """SELECT
-                    AVG(
-                        CONVERT (
-                            Ifnull(`{}`, 0),
-                            DECIMAL (16, 4)
-                        )
-                    ) avgdata,
-                    STDDEV_SAMP(
-                        CONVERT (
-                            Ifnull(`{}`, 0),
-                            DECIMAL (16, 4)
-                        )
-                    ) STDEVALL,
-                    COUNT(1) SUMDATA
-                FROM
-                    {} db
-                INNER JOIN B_option optDB ON optDB.projectID = {}
-                AND optDB.columnID = '{}'
-                AND Ifnull(`{}`, 0) = optDB.optionID
-                AND optDB.effectFlag = 1
-                WHERE
-                    rtrim(Ifnull(`{}`, '')) <> ''
-                """.format(ColumnID, ColumnID, TableName, ProjID,ColumnID, ColumnID, ColumnID)
-
-                ave_std_n_res = ret.selectall_sql(ave_std_n_sql)
-
-                if len(ave_std_n_res) != True:
-                    status = 5002
-                else:
-
-                    average = ave_std_n_res[0]["avgdata"]
-                    stdev = ave_std_n_res[0]["STDEVALL"]
-
-                MidSql = "SELECT {} FROM {} Order by {} Asc;".format(ColumnID, TableName, ColumnID)
-                midli = []
-                MidRes = ret.selectall_sql(MidSql)
-
-                for i in MidRes:
-                    midli.append(i[ColumnID])
-                if len(midli) % 2 == 0:
-                    midValue = (float(midli[len(midli) / 2])  + float(midli[len(midli) / 2 - 1])) / 2
-
-                else:
-                    midValue = midli[len(midli) / 2]
-
-                countTotal = effective_total
-                score = average / 5 * 100
-
-                ValueDict = {}
-                ValueDict["columnID"] = ColumnID
-                ValueDict["questionshortNM"] = ColumnName
-                ValueDict["optionID"] = OptionRes[k]["optionID"]
-                ValueDict["optionNM"] = optionNM
-                ValueDict["countN"] = countN
-                ValueDict["countPER"] = countPER
-                ALLPER = "%.10f" % (float(countN) / float(overall_total))
-                ValueDict["countALLPER"] = ALLPER  # --
-                ValueDict["average"] = average
-                ValueDict["stdev"] = stdev
-                ValueDict["midValue"] = midValue
-                ValueDict["countTotal"] = effective_total
-
-                li.append(ValueDict)
-
-            ret.close()
-        except Exception as e:
-            app.logger.error(e)
+        ret = MyPymysql('mysql')
+        DataCount = ret.selectall_sql(CountSql)
+        if len(DataCount) == False:
             status = 5002
-            li = ""
 
-        return jsonify(result(status, value=li))
+        # 注: Effectflag {1:有效, 0:无效}
+        OptionSql = "SELECT optionNM, effectFlag, optionID FROM {} WHERE userID={} AND projectID={} AND columnID='{}';".format(
+            "b_option", UserID, ProjID, ColumnID)  # 暂时缺quesID
+
+        OptionRes = ret.selectall_sql(OptionSql)
+
+        overall_total = 0  # 整体合计
+        effective_total = 0  # 有效合计 1
+        missing_total = 0  # 缺失合计
+        li = []
+        for i in range(len(DataCount)):
+            for j in range(len(OptionRes)):
+
+                if int(OptionRes[j]["optionID"]) == int(DataCount[i][ColumnID]) and int(
+                        OptionRes[j]['effectFlag']) == 1:
+                    effective_total += DataCount[i]["DataCount"]
+
+                else:
+                    missing_total += DataCount[i]["DataCount"]
+
+            overall_total += DataCount[i]["DataCount"]
+
+        for k in range(len(DataCount)):
+            optionNM = u"缺失"
+            for v in range(len(OptionRes)):
+
+                if int(OptionRes[v]["optionID"]) == int(DataCount[k][ColumnID]):
+                    optionNM = OptionRes[v]["optionNM"]
+                    break
+
+            countN = DataCount[k]["DataCount"]
+
+            if effective_total:
+                PER = float(countN) / float(effective_total)
+                countPER = "%.10f" % PER
+
+            else:
+                countPER = 0
+            ave_std_n_sql = """SELECT
+                AVG(
+                    CONVERT (
+                        Ifnull(`{}`, 0),
+                        DECIMAL (16, 4)
+                    )
+                ) avgdata,
+                STDDEV_SAMP(
+                    CONVERT (
+                        Ifnull(`{}`, 0),
+                        DECIMAL (16, 4)
+                    )
+                ) STDEVALL,
+                COUNT(1) SUMDATA
+            FROM
+                {} db
+            INNER JOIN B_option optDB ON optDB.projectID = {}
+            AND optDB.columnID = '{}'
+            AND Ifnull(`{}`, 0) = optDB.optionID
+            AND optDB.effectFlag = 1
+            WHERE
+                rtrim(Ifnull(`{}`, '')) <> ''
+            """.format(ColumnID, ColumnID, TableName, ProjID,ColumnID, ColumnID, ColumnID)
+
+            ave_std_n_res = ret.selectall_sql(ave_std_n_sql)
+
+            if len(ave_std_n_res) != True:
+                status = 5002
+            else:
+
+                average = ave_std_n_res[0]["avgdata"]
+                stdev = ave_std_n_res[0]["STDEVALL"]
+
+            MidSql = "SELECT {} FROM {} Order by {} Asc;".format(ColumnID, TableName, ColumnID)
+            midli = []
+            MidRes = ret.selectall_sql(MidSql)
+
+            for i in MidRes:
+                midli.append(i[ColumnID])
+            if len(midli) % 2 == 0:
+                midValue = (float(midli[len(midli) / 2])  + float(midli[len(midli) / 2 - 1])) / 2
+
+            else:
+                midValue = midli[len(midli) / 2]
+
+            countTotal = effective_total
+            score = average / 5 * 100
+
+            ValueDict = {}
+            ValueDict["columnID"] = ColumnID
+            ValueDict["questionshortNM"] = ColumnName
+            ValueDict["optionID"] = OptionRes[k]["optionID"]
+            ValueDict["optionNM"] = optionNM
+            ValueDict["countN"] = countN
+            ValueDict["countPER"] = countPER
+            ALLPER = "%.10f" % (float(countN) / float(overall_total))
+            ValueDict["countALLPER"] = ALLPER  # --
+            ValueDict["average"] = str(average)
+            ValueDict["stdev"] = str(stdev)
+            ValueDict["midValue"] = midValue
+            ValueDict["countTotal"] = effective_total
+
+            li.append(ValueDict)
+
+        ret.close()
+    except Exception as e:
+        app.logger.error(e)
+        status = 5002
+        li = ""
+
+    return jsonify(result(status, value=li))
 
 
 # 均值分析 --单选和数字填空 也叫描述性统计
