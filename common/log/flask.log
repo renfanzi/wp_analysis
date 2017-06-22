@@ -65,3 +65,19 @@
 2017-05-21 23:12:04,277 - ERROR - views.py - chisquare_get - 82 - (pymysql.err.InternalError) (1054, u"Unknown column 'abc' in 'field list'") [SQL: 'select P2Q02, abc from dc_bys2016_dataandusers where 1=1;']
 2017-06-18 01:29:54,303 - ERROR - views.py - SeriesTable - 595 - global name 'sss' is not defined
 2017-06-18 01:40:48,564 - ERROR - views.py - SeriesTable - 598 - global name 'sss' is not defined
+
+2017-06-21 10:47:07,292 - ERROR - views.py - varianc_get - 157 - -1
+2017-06-21 10:47:07,294 - WARNING - views.py - varianc_get - 158 - -1
+2017-06-21 12:04:51,424 - ERROR - views.py - varianc_get - 162 - -1
+2017-06-21 12:04:51,425 - WARNING - views.py - varianc_get - 163 - -1
+2017-06-21 17:09:56,591 - ERROR - views.py - multiple_response_get - 508 - float division by zero
+2017-06-21 17:11:09,802 - ERROR - views.py - CompareTheMean - 572 - 'NoneType' object has no attribute '__getitem__'
+2017-06-21 17:11:41,099 - ERROR - views.py - SeriesTable - 673 - 'NoneType' object has no attribute '__getitem__'
+2017-06-21 17:14:47,237 - ERROR - views.py - CompareTheMean - 572 - 'NoneType' object has no attribute '__getitem__'
+2017-06-21 17:36:20,746 - ERROR - views.py - CompareTheMean - 567 - list index out of range
+2017-06-21 17:36:45,961 - ERROR - views.py - CompareTheMean - 567 - list index out of range
+2017-06-21 17:37:07,539 - ERROR - views.py - CompareTheMean - 568 - list index out of range
+2017-06-21 17:38:00,241 - ERROR - views.py - CompareTheMean - 568 - list index out of range
+2017-06-21 17:38:48,963 - ERROR - views.py - CompareTheMean - 567 - list index out of range
+2017-06-21 17:39:41,345 - ERROR - views.py - CompareTheMean - 568 - list index out of range
+2017-06-21 17:40:25,814 - ERROR - views.py - CompareTheMean - 568 - list index out of range

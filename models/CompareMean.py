@@ -87,8 +87,8 @@ def midValue(ProjID, ColumnID,  ColumnEXID, TableName, Where):
         {}
         ORDER BY
             CONVERT (optionID, SIGNED),
-            CONVERT ({}, SIGNED)
-        """.format(ColumnID, ColumnID, TableName, ProjID, ColumnEXID, ColumnEXID, ColumnEXID, ColumnID, Where)
+            CONVERT ({}, decimal(20,8))
+        """.format(ColumnID, ColumnID, TableName, ProjID, ColumnEXID, ColumnEXID, ColumnEXID, Where,ColumnID)
     df = pd.read_sql(sql, sqlalchemy_engine)
     df = df.dropna()
     return (df["optionID"]).dropna(), (df[ColumnID]).dropna()

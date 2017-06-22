@@ -60,108 +60,206 @@ def do_chisquare2way(v1, v2):
 
 
 def variance(v1, v2, table, where):
+    # try:
+    #     sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
+    #     df = pd.read_sql(sql, sqlalchemy_engine)
+    #     df_dropna = df.dropna()
+    #     expr = '{}~C({})'.format(v1, v2)
+    #     mod = ols(expr, data=df_dropna).fit()
+    #     anova_table = sm.stats.anova_lm(mod)
+    #     ret = {'df': list(anova_table.df),
+    #            'sum_sq': list(anova_table.sum_sq),
+    #            'mean_sq': list(anova_table.mean_sq),
+    #            'F': list(anova_table.F)[0],
+    #            'P': list(anova_table.values.T[-1])[0]
+    #            }
+    # except Exception as e:
+    #     app.logger.error(e)
+    #     ret = {}
+    # return ret
+
     try:
+        status = 2000
+        flag = 1
         sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
         df = pd.read_sql(sql, sqlalchemy_engine)
         df_dropna = df.dropna()
+        # print df_dropna[v2][-1]
         expr = '{}~C({})'.format(v1, v2)
-        mod = ols(expr, data=df_dropna).fit()
-        anova_table = sm.stats.anova_lm(mod)
-        ret = {'df': list(anova_table.df),
-               'sum_sq': list(anova_table.sum_sq),
-               'mean_sq': list(anova_table.mean_sq),
-               'F': list(anova_table.F)[0],
-               'P': list(anova_table.values.T[-1])[0]
-               }
+        v2sum = 0
+        for i in range(len(df_dropna[v2])):
+            if (df_dropna[v2]).iloc[0] == (df_dropna[v2]).iloc[i]:
+                v2sum += 1
+        if v2sum == len(df_dropna[v2]):
+            status = 5003
+            flag = 0
+
+        if flag == 1:
+            mod = ols(expr, data=df_dropna).fit()
+            anova_table = sm.stats.anova_lm(mod)
+            ret = {'df': list(anova_table.df),
+                   'sum_sq': list(anova_table.sum_sq),
+                   'mean_sq': list(anova_table.mean_sq),
+                   'F': list(anova_table.F)[0],
+                   'P': list(anova_table.values.T[-1])[0]
+                   }
+        else:
+            ret = {"df": "NaN", "sum_sq": "NaN", "mean_sq": "Nan", "F": "NaN", "P": "NaN"}
+
     except Exception as e:
         app.logger.error(e)
-        ret = {}
+        app.logger.warning(e)
+        status = 4002
+        ret = {"df": "NaN", "sum_sq": "NaN", "mean_sq": "Nan", "F": "NaN", "P": "NaN"}
+
     return ret
 
+
 def chisquare2way(v1, v2, table, where):
-    sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
-    df = pd.read_sql(sql, sqlalchemy_engine)
-    df_dropna = df.dropna()
-    ret = do_chisquare2way(df_dropna[v1], df_dropna[v2])
+    # sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
+    # df = pd.read_sql(sql, sqlalchemy_engine)
+    # df_dropna = df.dropna()
+    # ret = do_chisquare2way(df_dropna[v1], df_dropna[v2])
+    # return ret
+    try:
+        status = 2000
+        flag = 1
+        sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
+        df = pd.read_sql(sql, sqlalchemy_engine)
+        df_dropna = df.dropna()
+        v2sum = 0
+        for i in range(len(df_dropna[v2])):
+            if (df_dropna[v2]).iloc[0] == (df_dropna[v2]).iloc[i]:
+                v2sum += 1
+        if v2sum == len(df_dropna[v2]):
+            status = 5003
+            flag = 0
+
+        if flag == 1:
+            ret = do_chisquare2way(df_dropna[v1], df_dropna[v2])
+        else:
+            ret = {'p': "NaN", 'df': "NaN", 'chisq': "NaN", 'N': "NaN"}
+
+    except Exception as e:
+        app.logger.error(e)
+        status = 4002
+        ret = {'p': "NaN", 'df': "NaN", 'chisq': "NaN", 'N': "NaN"}
     return ret
+
+
+def my_4_quartiles(li):
+    # 第一步：将n个变量值从小到大排列，X(j)表示此数列中第j个数。
+    # 第二步：计算指数，设(n+1)P%=j+g，j为整数部分，g为小数部分。
+    # 第三步：1)当g=0时：P百分位数=X(j);
+    # 2)当g≠0时：P百分位数=g*X(j+1)+（1-g）*X(j)=X(j)+g*[X(j+1)-X(j)]。
+    if isinstance(li, list):
+        import math
+        li = sorted(li)
+        P1 = 0.25
+        P2 = 0.5
+        P3 = 0.75
+        a1 = float((len(li) + 1) * P1)
+        a2 = float((len(li) + 1) * P2)
+        a3 = float((len(li) + 1) * P3)
+        j1 = math.floor(a1)
+        j2 = math.floor(a2)
+        j3 = math.floor(a3)
+        g1 = float(a1) - float(j1)
+        g2 = float(a2) - float(j2)
+        g3 = float(a3) - float(j3)
+        try:
+            P_value1 = g1 * li[int(j1)] + (1 - g1) * li[int(j1) - 1]
+        except Exception as e1:
+            P_value1 = "NaN"
+        try:
+            P_value2 = g2 * li[int(j2)] + (1 - g2) * li[int(j2) - 1]
+        except Exception as e2:
+            P_value2 = "NaN"
+        try:
+            P_value3 = g3 * li[int(j3)] + (1 - g3) * li[int(j3) - 1]
+        except Exception as e3:
+            P_value3 = "NaN"
+        return (P_value1, P_value2, P_value3)
+    else:
+        raise IndexError
+
 
 # 卡方 --(单选题)
 @app.route('/v1/chisquare2way/<string:v1>:<string:v2>:<string:table>:<string:where>', methods=['GET'])
 def chisquare_get(v1, v2, table, where):
     if request.method == 'GET':
         try:
+            status = 2000
+            flag = 1
             sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
             df = pd.read_sql(sql, app.config.get('sqlalchemy_engine'))
             df_dropna = df.dropna()
-            # print df_dropna
-            # v2sum = 0
-            # # try:
-            # for i in range(len(df_dropna[v2])):
-            #     if df_dropna[v2][i]:
-            #         if df_dropna[v2][0] == df_dropna[v2][i]:
-            #             v2sum += 1
-            # if v2sum == len(df_dropna[v2]):
-            #     status=5003
-            #     value = ""
-            # except Exception as e:
-            #     app.logger.error(e)
-            #     return jsonify(result(status=5004, value=""))
+            v2sum = 0
+            for i in range(len(df_dropna[v2])):
+                if (df_dropna[v2]).iloc[0] == (df_dropna[v2]).iloc[i]:
+                    v2sum += 1
+            if v2sum == len(df_dropna[v2]):
+                status = 5003
+                flag = 0
 
-            ret = do_chisquare2way(df_dropna[v1], df_dropna[v2])
-            status = 2000
+            if flag == 1:
+                ret = do_chisquare2way(df_dropna[v1], df_dropna[v2])
+            else:
+                ret = {'p': "NaN", 'df': "NaN", 'chisq': "NaN", 'N': "NaN"}
+
         except Exception as e:
             app.logger.error(e)
             status = 4002
-            ret = ""
+            ret = {'p': "NaN", 'df': "NaN", 'chisq': "NaN", 'N': "NaN"}
 
         if status == 2000:
             return jsonify(ret)
         else:
             return jsonify(result(status=status, value=""))
-
 
 
 # 方差  -- 交叉(单选或数值填空)
 @app.route('/v1/variance/<string:v1>:<string:v2>:<string:table>:<string:where>', methods=['GET'])
 def varianc_get(v1, v2, table, where):
     if request.method == 'GET':
+
         try:
+            status = 2000
+            flag = 1
             sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
             df = pd.read_sql(sql, app.config.get('sqlalchemy_engine'))
             df_dropna = df.dropna()
+            # print df_dropna[v2][-1]
             expr = '{}~C({})'.format(v1, v2)
-            # try:
-            # v2sum = 0
-            # for i in range(len(df_dropna[v2])):
-            #     if df_dropna[v2][0] == df_dropna[v2][i]:
-            #         v2sum += 1
-            # if v2sum == len(df_dropna[v2]):
-            #     status=5003
-            #     value=""
+            v2sum = 0
+            for i in range(len(df_dropna[v2])):
+                if (df_dropna[v2]).iloc[0] == (df_dropna[v2]).iloc[i]:
+                    v2sum += 1
+            if v2sum == len(df_dropna[v2]):
+                status=5003
+                flag = 0
 
-            # except Exception as e:
-            #     app.logger.error(e)
-            #     return jsonify(result(status=5004, value=""))
+            if flag == 1:
+                mod = ols(expr, data=df_dropna).fit()
+                anova_table = sm.stats.anova_lm(mod)
+                ret = {'df': list(anova_table.df),
+                                'sum_sq': list(anova_table.sum_sq),
+                                'mean_sq': list(anova_table.mean_sq),
+                                'F': list(anova_table.F)[0],
+                                'p': list(anova_table.values.T[-1])[0]
+                                }
+            else:
+                ret = {"df": "NaN", "sum_sq": "NaN", "mean_sq": "Nan", "F": "NaN", "P": "NaN"}
 
-            mod = ols(expr, data=df_dropna).fit()
-            anova_table = sm.stats.anova_lm(mod)
-            ret = {'df': list(anova_table.df),
-                            'sum_sq': list(anova_table.sum_sq),
-                            'mean_sq': list(anova_table.mean_sq),
-                            'F': list(anova_table.F)[0],
-                            'p': list(anova_table.values.T[-1])[0]
-                            }
-            status = 2000
         except Exception as e:
             app.logger.error(e)
             app.logger.warning(e)
             status = 4002
-            ret = ""
+            ret = {"df": "NaN", "sum_sq": "NaN", "mean_sq": "Nan", "F": "NaN", "P": "NaN"}
         if status == 2000:
             return jsonify(ret)
         else:
-            return jsonify(result(status=status, value=""))
-
+            return jsonify(result(status=status, value=ret))
 
 
 # 频次分析--单选题
@@ -423,8 +521,8 @@ def CompareTheMean(UserID, ProjID, QuesID, ColumnID, ColumnName, ColumnEXID, Col
         for m in mean_data:
             mid_li = []
             for i in range(len(opt_id)):
-                if m == opt_id[i]:
-                    mid_li.append(opt_id[i])
+                if int(m["optionID"]) == int(opt_id.iloc[i]):
+                    mid_li.append(mid_data.iloc[i])
             data_dict = dict()
             data_dict["columnID"] = ColumnID
             data_dict["questionshortNM"] = ColumnName
@@ -454,39 +552,16 @@ def CompareTheMean(UserID, ProjID, QuesID, ColumnID, ColumnName, ColumnEXID, Col
                 data_dict["F_P_Value"] = "%.2f" % variance_data["F"]
 
             if len(mid_li) > 1:
-                percentage_25 = math.floor((len(mid_li) + 1) / 4.0)
-                percentage_75 = math.floor((3 * (len(mid_li) + 1)) / 4.0)
-                if len(mid_li) % 2 == 0:
-                    # 偶数
-                    if 1==1:
-                        data_dict["midValue"] = (float(mid_li[len(mid_li) / 2]) + float(mid_li[len(mid_li) / 2 - 1])) / 2
-                        data_dict["25%"] = 0.75*mid_li[percentage_25-1] + 0.25*mid_li[percentage_25]
-                        data_dict["75%"] = 0.25*mid_li[percentage_75-1] + 0.75*mid_li[percentage_75]
 
-                    # else:
-                    #     if len(mid_li):
-                    #         data_dict["midValue"] = mid_li[0]
-                    #         data_dict["25%"] = mid_li[0]
-                    #         data_dict["75%"] = mid_li[0]
-                    #     else:
-                    #         data_dict["midValue"] = 0
-                    #         data_dict["25%"] = 0
-                    #         data_dict["75%"] = 0
-                else:
-                    if len(mid_li) > 1:
+                mid_quart_data = my_4_quartiles(mid_li)
+                data_dict["midValue"] = mid_quart_data[1]
+                data_dict["25%"] = mid_quart_data[0]
+                data_dict["75%"] = mid_quart_data[2]
+            else:
+                data_dict["midValue"] = 0
+                data_dict["25%"] = 0
+                data_dict["75%"] = 0
 
-                        data_dict["midValue"] = mid_li[len(mid_li) / 2 ]
-                        data_dict["25%"] = mid_li[math.floor(len(mid_li) * 0.25)]
-                        data_dict["75%"] = mid_li[math.floor(len(mid_li) * 0.75)]
-                    # else:
-                    #     if len(mid_li):
-                    #         data_dict["midValue"] = mid_li[0]
-                    #         data_dict["25%"] = mid_li[0]
-                    #         data_dict["75%"] = mid_li[0]
-                    #     else:
-                    #         data_dict["midValue"] = 0
-                    #         data_dict["25%"] = 0
-                    #         data_dict["75%"] = 0
 
             data_li.append(data_dict)
         status = 2000
@@ -495,7 +570,6 @@ def CompareTheMean(UserID, ProjID, QuesID, ColumnID, ColumnName, ColumnEXID, Col
         status = 5000
 
 
-    # return jsonify(data_li)
     if status == 2000:
         return jsonify(data_li)
     else:
