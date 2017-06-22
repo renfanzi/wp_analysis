@@ -13,7 +13,7 @@
     <SUITE FILE_PATH="coverage/app4wp$MultipleResponseModel.coverage" NAME="MultipleResponseModel Coverage Results" MODIFIED="1495229039753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/app4wp$views.coverage" NAME="views Coverage Results" MODIFIED="1498036954634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/app" />
     <SUITE FILE_PATH="coverage/app4wp$base.coverage" NAME="base Coverage Results" MODIFIED="1494811166614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
-    <SUITE FILE_PATH="coverage/app4wp$run.coverage" NAME="run Coverage Results" MODIFIED="1498098563936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/app4wp$run.coverage" NAME="run Coverage Results" MODIFIED="1498100259968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/app4wp$SeriesTableModel.coverage" NAME="SeriesTableModel Coverage Results" MODIFIED="1497722095660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models" />
     <SUITE FILE_PATH="coverage/app4wp$my_sqlalchemy.coverage" NAME="my_sqlalchemy Coverage Results" MODIFIED="1497602435794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common/util" />
     <SUITE FILE_PATH="coverage/app4wp$test.coverage" NAME="test Coverage Results" MODIFIED="1497604216202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -28,34 +28,45 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-622">
-              <caret line="519" column="0" lean-forward="true" selection-start-line="519" selection-start-column="0" selection-end-line="519" selection-end-column="0" />
+            <state relative-caret-position="456">
+              <caret line="558" column="17" lean-forward="true" selection-start-line="558" selection-start-column="17" selection-end-line="558" selection-end-column="17" />
               <folding>
                 <element signature="e#47#61#0" expanded="true" />
                 <element signature="e#793#1109#0" expanded="false" />
                 <element signature="e#1132#2061#0" expanded="false" />
                 <element signature="e#2098#2215#0" expanded="false" />
-                <element signature="e#2258#4184#0" expanded="false" />
-                <element signature="e#4232#5239#0" expanded="false" />
-                <element signature="e#6545#7580#0" expanded="false" />
-                <element signature="e#7742#9324#0" expanded="false" />
-                <element signature="e#9587#14589#0" expanded="false" />
-                <element signature="e#14784#16200#0" expanded="false" />
-                <element signature="e#16484#18576#0" expanded="false" />
-                <element signature="e#21659#26039#0" expanded="false" />
-                <marker date="1498098563926" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="4241:4269" ph="select missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="4519:4547" ph="select missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="6652:6680" ph="select missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="7850:7878" ph="select missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="9725:9803" ph="SELECT missi... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="10531:10623" ph="SELECT optio... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="10531:10626" ph="SELECT optio... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="10531:10627" ph="SELECT optio... missing_value" />
-                <marker date="1498098563926" expanded="true" signature="11961:12744" ph="SELECT AVG( dc_bys2016_dataandusers" />
-                <marker date="1498098563926" expanded="true" signature="13153:13186" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
+                <element signature="e#2258#4150#0" expanded="false" />
+                <element signature="e#4198#5205#0" expanded="false" />
+                <element signature="e#5236#6350#0" expanded="false" />
+                <element signature="e#6511#7546#0" expanded="false" />
+                <element signature="e#7708#9290#0" expanded="false" />
+                <element signature="e#9553#14555#0" expanded="false" />
+                <element signature="e#14750#16166#0" expanded="false" />
+                <element signature="e#16450#18542#0" expanded="false" />
+                <element signature="e#21625#26005#0" expanded="false" />
+                <marker date="1498098990910" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="4207:4235" ph="select missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="4485:4513" ph="select missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="6618:6646" ph="select missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="7816:7844" ph="select missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="9691:9769" ph="SELECT missi... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="10497:10589" ph="SELECT optio... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="10497:10592" ph="SELECT optio... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="10497:10593" ph="SELECT optio... missing_value" />
+                <marker date="1498098990910" expanded="true" signature="11927:12710" ph="SELECT AVG( dc_bys2016_dataandusers" />
+                <marker date="1498098990910" expanded="true" signature="13119:13152" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my.cnf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/config/my.cnf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -63,12 +74,11 @@
       <file leaf-file-name="CompareMean.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/CompareMean.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="92" column="20" lean-forward="false" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
+            <state relative-caret-position="360">
+              <caret line="89" column="39" lean-forward="true" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
               <folding>
                 <element signature="e#46#79#0" expanded="true" />
                 <element signature="e#296#1682#0" expanded="false" />
-                <element signature="e#2008#2517#0" expanded="false" />
                 <marker date="1498039501903" expanded="true" signature="308:1670" ph="SELECT COUNT... dc_bys2016_dataandusers" />
                 <marker date="1498039501903" expanded="true" signature="2020:2505" ph="SELECT optDB... dc_bys2016_dataandusers" />
               </folding>
@@ -164,7 +174,7 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+              <caret line="20" column="58" lean-forward="true" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -298,6 +308,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="log" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app4wp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app4wp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -706,6 +734,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -726,26 +755,27 @@
             <element signature="e#793#1109#0" expanded="false" />
             <element signature="e#1132#2061#0" expanded="false" />
             <element signature="e#2098#2215#0" expanded="false" />
-            <element signature="e#2258#4184#0" expanded="false" />
-            <element signature="e#4232#5239#0" expanded="false" />
-            <element signature="e#6545#7580#0" expanded="false" />
-            <element signature="e#7742#9324#0" expanded="false" />
-            <element signature="e#9587#14589#0" expanded="false" />
-            <element signature="e#14784#16200#0" expanded="false" />
-            <element signature="e#16484#18576#0" expanded="false" />
-            <element signature="e#21659#26039#0" expanded="false" />
-            <marker date="1498098563926" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4241:4269" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4519:4547" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="6652:6680" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="7850:7878" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="9725:9803" ph="SELECT missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10623" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10626" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10627" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="11961:12744" ph="SELECT AVG( dc_bys2016_dataandusers" />
-            <marker date="1498098563926" expanded="true" signature="13153:13186" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
+            <element signature="e#2258#4150#0" expanded="false" />
+            <element signature="e#4198#5205#0" expanded="false" />
+            <element signature="e#5236#6350#0" expanded="false" />
+            <element signature="e#6511#7546#0" expanded="false" />
+            <element signature="e#7708#9290#0" expanded="false" />
+            <element signature="e#9553#14555#0" expanded="false" />
+            <element signature="e#14750#16166#0" expanded="false" />
+            <element signature="e#16450#18542#0" expanded="false" />
+            <element signature="e#21625#26005#0" expanded="false" />
+            <marker date="1498098990910" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4207:4235" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4485:4513" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="6618:6646" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="7816:7844" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="9691:9769" ph="SELECT missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10589" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10592" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10593" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="11927:12710" ph="SELECT AVG( dc_bys2016_dataandusers" />
+            <marker date="1498098990910" expanded="true" signature="13119:13152" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
           </folding>
         </state>
       </provider>
@@ -784,6 +814,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -804,26 +835,27 @@
             <element signature="e#793#1109#0" expanded="false" />
             <element signature="e#1132#2061#0" expanded="false" />
             <element signature="e#2098#2215#0" expanded="false" />
-            <element signature="e#2258#4184#0" expanded="false" />
-            <element signature="e#4232#5239#0" expanded="false" />
-            <element signature="e#6545#7580#0" expanded="false" />
-            <element signature="e#7742#9324#0" expanded="false" />
-            <element signature="e#9587#14589#0" expanded="false" />
-            <element signature="e#14784#16200#0" expanded="false" />
-            <element signature="e#16484#18576#0" expanded="false" />
-            <element signature="e#21659#26039#0" expanded="false" />
-            <marker date="1498098563926" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4241:4269" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4519:4547" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="6652:6680" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="7850:7878" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="9725:9803" ph="SELECT missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10623" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10626" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10627" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="11961:12744" ph="SELECT AVG( dc_bys2016_dataandusers" />
-            <marker date="1498098563926" expanded="true" signature="13153:13186" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
+            <element signature="e#2258#4150#0" expanded="false" />
+            <element signature="e#4198#5205#0" expanded="false" />
+            <element signature="e#5236#6350#0" expanded="false" />
+            <element signature="e#6511#7546#0" expanded="false" />
+            <element signature="e#7708#9290#0" expanded="false" />
+            <element signature="e#9553#14555#0" expanded="false" />
+            <element signature="e#14750#16166#0" expanded="false" />
+            <element signature="e#16450#18542#0" expanded="false" />
+            <element signature="e#21625#26005#0" expanded="false" />
+            <marker date="1498098990910" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4207:4235" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4485:4513" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="6618:6646" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="7816:7844" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="9691:9769" ph="SELECT missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10589" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10592" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10593" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="11927:12710" ph="SELECT AVG( dc_bys2016_dataandusers" />
+            <marker date="1498098990910" expanded="true" signature="13119:13152" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
           </folding>
         </state>
       </provider>
@@ -862,6 +894,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -897,26 +930,27 @@
             <element signature="e#793#1109#0" expanded="false" />
             <element signature="e#1132#2061#0" expanded="false" />
             <element signature="e#2098#2215#0" expanded="false" />
-            <element signature="e#2258#4184#0" expanded="false" />
-            <element signature="e#4232#5239#0" expanded="false" />
-            <element signature="e#6545#7580#0" expanded="false" />
-            <element signature="e#7742#9324#0" expanded="false" />
-            <element signature="e#9587#14589#0" expanded="false" />
-            <element signature="e#14784#16200#0" expanded="false" />
-            <element signature="e#16484#18576#0" expanded="false" />
-            <element signature="e#21659#26039#0" expanded="false" />
-            <marker date="1498098563926" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4241:4269" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4519:4547" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="6652:6680" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="7850:7878" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="9725:9803" ph="SELECT missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10623" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10626" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10627" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="11961:12744" ph="SELECT AVG( dc_bys2016_dataandusers" />
-            <marker date="1498098563926" expanded="true" signature="13153:13186" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
+            <element signature="e#2258#4150#0" expanded="false" />
+            <element signature="e#4198#5205#0" expanded="false" />
+            <element signature="e#5236#6350#0" expanded="false" />
+            <element signature="e#6511#7546#0" expanded="false" />
+            <element signature="e#7708#9290#0" expanded="false" />
+            <element signature="e#9553#14555#0" expanded="false" />
+            <element signature="e#14750#16166#0" expanded="false" />
+            <element signature="e#16450#18542#0" expanded="false" />
+            <element signature="e#21625#26005#0" expanded="false" />
+            <marker date="1498098990910" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4207:4235" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4485:4513" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="6618:6646" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="7816:7844" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="9691:9769" ph="SELECT missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10589" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10592" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10593" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="11927:12710" ph="SELECT AVG( dc_bys2016_dataandusers" />
+            <marker date="1498098990910" expanded="true" signature="13119:13152" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
           </folding>
         </state>
       </provider>
@@ -1091,13 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/config/my.cnf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/lib/python2.7/dist-packages/pandas/core/generic.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -1174,14 +1201,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/MeanModel.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1203,14 +1222,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -1221,14 +1232,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/common/config/my.cnf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="58" lean-forward="true" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/CompareMean.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="92" column="20" lean-forward="false" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="20" />
+        <state relative-caret-position="360">
+          <caret line="89" column="39" lean-forward="true" selection-start-line="89" selection-start-column="39" selection-end-line="89" selection-end-column="39" />
           <folding>
             <element signature="e#46#79#0" expanded="true" />
             <element signature="e#296#1682#0" expanded="false" />
-            <element signature="e#2008#2517#0" expanded="false" />
             <marker date="1498039501903" expanded="true" signature="308:1670" ph="SELECT COUNT... dc_bys2016_dataandusers" />
             <marker date="1498039501903" expanded="true" signature="2020:2505" ph="SELECT optDB... dc_bys2016_dataandusers" />
           </folding>
@@ -1237,33 +1271,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-622">
-          <caret line="519" column="0" lean-forward="true" selection-start-line="519" selection-start-column="0" selection-end-line="519" selection-end-column="0" />
+        <state relative-caret-position="456">
+          <caret line="558" column="17" lean-forward="true" selection-start-line="558" selection-start-column="17" selection-end-line="558" selection-end-column="17" />
           <folding>
             <element signature="e#47#61#0" expanded="true" />
             <element signature="e#793#1109#0" expanded="false" />
             <element signature="e#1132#2061#0" expanded="false" />
             <element signature="e#2098#2215#0" expanded="false" />
-            <element signature="e#2258#4184#0" expanded="false" />
-            <element signature="e#4232#5239#0" expanded="false" />
-            <element signature="e#6545#7580#0" expanded="false" />
-            <element signature="e#7742#9324#0" expanded="false" />
-            <element signature="e#9587#14589#0" expanded="false" />
-            <element signature="e#14784#16200#0" expanded="false" />
-            <element signature="e#16484#18576#0" expanded="false" />
-            <element signature="e#21659#26039#0" expanded="false" />
-            <marker date="1498098563926" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4241:4269" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="4519:4547" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="6652:6680" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="7850:7878" ph="select missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="9725:9803" ph="SELECT missi... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10623" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10626" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="10531:10627" ph="SELECT optio... missing_value" />
-            <marker date="1498098563926" expanded="true" signature="11961:12744" ph="SELECT AVG( dc_bys2016_dataandusers" />
-            <marker date="1498098563926" expanded="true" signature="13153:13186" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
+            <element signature="e#2258#4150#0" expanded="false" />
+            <element signature="e#4198#5205#0" expanded="false" />
+            <element signature="e#5236#6350#0" expanded="false" />
+            <element signature="e#6511#7546#0" expanded="false" />
+            <element signature="e#7708#9290#0" expanded="false" />
+            <element signature="e#9553#14555#0" expanded="false" />
+            <element signature="e#14750#16166#0" expanded="false" />
+            <element signature="e#16450#18542#0" expanded="false" />
+            <element signature="e#21625#26005#0" expanded="false" />
+            <marker date="1498098990910" expanded="true" signature="2282:2310" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="3000:3028" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4207:4235" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="4485:4513" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="6618:6646" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="7816:7844" ph="select missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="9691:9769" ph="SELECT missi... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10589" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10592" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="10497:10593" ph="SELECT optio... missing_value" />
+            <marker date="1498098990910" expanded="true" signature="11927:12710" ph="SELECT AVG( dc_bys2016_dataandusers" />
+            <marker date="1498098990910" expanded="true" signature="13119:13152" ph="SELECT P1Q01... dc_bys2016_dataandusers" />
           </folding>
         </state>
       </provider>

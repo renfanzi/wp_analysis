@@ -84,7 +84,6 @@ def variance(v1, v2, table, where):
         sql = "select {}, {} from {} where {};".format(v1, v2, table, where)
         df = pd.read_sql(sql, sqlalchemy_engine)
         df_dropna = df.dropna()
-        # print df_dropna[v2][-1]
         expr = '{}~C({})'.format(v1, v2)
         v2sum = 0
         for i in range(len(df_dropna[v2])):
