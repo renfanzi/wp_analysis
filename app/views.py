@@ -603,7 +603,7 @@ def SeriesTable(UserID, ProjID, QuesID, ColumnID, ColumnName, ColumnEXID, Column
             data_dict["sum"] = str(subdata["SUMALL"])
             data_dict["average"] = str(subdata["avgdata"])
             data_dict["stdev"] = str(subdata["STDEVALL"])
-            data_dict["sumTotal"] = sumTotal #
+            data_dict["sumTotal"] = str(sumTotal) #
             data_dict["score"] = float(subdata["avgdata"]) / 5.0 * 100
             data_dict["F_Value"] = var_data["F"]
             data_dict["FP_Value"] = var_data["P"]
